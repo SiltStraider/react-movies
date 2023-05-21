@@ -2,11 +2,12 @@ import React from 'react';
 import { Movie } from './movie'
 
 function Movies(props) {
-  const { movies } = props;
+  const { movies = [] } = props;
   return <div className="movies">
-    {movies.map(movie => (
+    {movies.length ? movies.map(movie => (
       <Movie key={movie.imdbID} {...movie} />
-    ))}
+    )) : <h4>Nothing Found</h4>
+  }
   </div>
 }
 
